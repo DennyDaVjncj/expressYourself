@@ -3,6 +3,9 @@ const $noteText = $(".note-textarea");
 const $saveNoteBtn = $(".save-note");
 const $newNoteBtn = $(".new-note");
 const $noteList = $(".list-container .list-group");
+const path=require('path');
+const xprssPack=require('express');
+const xprssApp=xprssPack();
 
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
