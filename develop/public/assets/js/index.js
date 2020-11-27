@@ -14,6 +14,8 @@ const getNotes = () => {
     method: "GET",
   }).then((newNote)=>{
     console.log(newNote);
+    const userNotes=newNote.fs.sendFile(__dirname,'notes.html')
+    return userNotes;
   })
 };
 
