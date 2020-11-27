@@ -12,9 +12,9 @@ const getNotes = () => {
   return $.ajax({
     url: "/api/notes",
     method: "GET",
-  }).then((newNote)=>{
+  }).then(newNote=>{
     console.log(newNote);
-    const userNotes=newNote.fs.sendFile(__dirname,'notes.html')
+    const userNotes=newNote.fs.sendFile(__dirname,'notes.html');
     return userNotes;
   })
 };
