@@ -3,10 +3,6 @@ const $noteText = $(".note-textarea");
 const $saveNoteBtn = $(".save-note");
 const $newNoteBtn = $(".new-note");
 const $noteList = $(".list-container .list-group");
-const path=require('path');
-const effess=require('fs');
-const xprssPack=require('express');
-const xprssApp=xprssPack();
 
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
@@ -16,11 +12,7 @@ const getNotes = () => {
   return $.ajax({
     url: "/api/notes",
     method: "GET",
-  }).then(newNote=>{
-    console.log(newNote);
-    const userNotes=newNote.fs.sendFile(__dirname,'notes.html');
-    return userNotes;
-  })
+  });
 };
 
 // A function for saving a note to the db
