@@ -38,7 +38,7 @@ For users that need to keep track of a lot of information, it's easy to forget o
 
 <!-- I wanna create an app that easily allows for a user to store all their thoughts -->
 
-## Acceptance Criteria
+<!-- ## Acceptance Criteria -->
 
 Application should allow users to create and save notes.
 
