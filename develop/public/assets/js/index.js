@@ -4,6 +4,7 @@ const $saveNoteBtn = $(".save-note");
 const $newNoteBtn = $(".new-note");
 const $noteList = $(".list-container .list-group");
 const path=require('path');
+const effess=require('fs');
 const xprssPack=require('express');
 const xprssApp=xprssPack();
 
