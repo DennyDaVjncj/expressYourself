@@ -19,7 +19,7 @@ const getNotes = () => {
 const saveNote = (note) => {
   return $.ajax({
     url: "/api/notes",
-    data: note,
+    data: note,//dynamic value, updated user entries
     method: "POST",
   });
 };
@@ -27,7 +27,7 @@ const saveNote = (note) => {
 // A function for deleting a note from the db
 const deleteNote = (id) => {
   return $.ajax({
-    url: "api/notes/" + id,
+    url: "api/notes/" + id,//seems I'll be deleting from database tables
     method: "DELETE",
   });
 };
