@@ -32,7 +32,7 @@ html, body {
   height: 50px;
   margin-top: 13px;
   font-size: 3rem;
-}
+}/*style this input box*/
 
 .note-title:read-only, .note-textarea:read-only {
   color: #757575;
