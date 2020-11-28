@@ -1,3 +1,8 @@
-[{"title":"Test Title","text":"Test text"}]
-// how am I to make use of this file?
-    //where user notes will store to
+
+
+[
+    {
+        "title":"Test Title",
+        "text":"Test text"
+    }
+]
