@@ -1,14 +1,18 @@
 //this file will serve to create the pathway for data transers
-
 const userInput=require('../db/db.json')
 const effThis=require('fs');
+const textArea=require('../js/index.js');
+
 
 module.exports=xprssApp=>{
-    xprssApp.get('/api/notes',(ask,rec)=>{
-        rec.json(userInput);
+    xprssApp.get('/api/notes',(ask,echo)=>{
+        echo.json(userInput);
     })
-    xprssApp.get('/api/*',(ask,rec)=>{
-        rec.json(userInput);
+    xprssApp.get('/api/*',(ask,echo)=>{
+        echo.json(userInput);
+    })
+    xprssApp.post('/api/notes',(ask,echo)=>{
+        textArea.activenote.push()
     })
 }
 
