@@ -7,6 +7,9 @@ module.exports=xprssApp=>{
     xprssApp.get('/api/notes',(ask,rec)=>{
         rec.json(userInput);
     })
+    xprssApp.get('/api/*',(ask,rec)=>{
+        rec.json(userInput);
+    })
 }
 
 //getNotes from dbJson file - complete!
