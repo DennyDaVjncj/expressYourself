@@ -5,7 +5,6 @@ const {v4:uuidv4}=require('uuid');//not called to action
 const { response } = require('express');//auto generated line
 const shiningPath=require('path');
 // let mineArray=[];//line 2 maybe fullfills this line
-const indexScript=require('../js/index.js');
 
 module.exports=xprssApp=>{
     xprssApp.get('/api/notes',(ask,echo)=>{
@@ -13,12 +12,11 @@ module.exports=xprssApp=>{
     })
     xprssApp.post('/api/notes',(ask,echo)=>{
         echo.json(userInput);
-        let newNote=ask.body;
-        // console.log(newNote);
-        activeNote+=newNote;
+        let newNote=ask.body;       
         let newId=uuidv4();
-        // console.log(newId);
-        userInput.push(activeNote);    
+        newNote.newId=newId;
+        userInput.push(newNote);
+        effThis.writeFile(shiningPath.join(__dirname,userInput));
     })
 }    
 
