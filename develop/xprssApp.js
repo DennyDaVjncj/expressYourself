@@ -10,6 +10,7 @@ xprssApp.use(xprssPack.static("public"));
 //these routes handle user requests
 require('./routes/apiRoutes.js')(xprssApp);
 require('./routes/htmlRoutes')(xprssApp);
+// require('./db/db.json')(xprssApp);//random thought that did have a positive impact
 
 //bringing server online:
 xprssApp.listen(CHANNEL,()=>{
