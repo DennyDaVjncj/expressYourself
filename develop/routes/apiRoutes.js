@@ -15,16 +15,18 @@ module.exports=xprssApp=>{
     })
     xprssApp.post('/api/notes',(ask,echo)=>{
         echo.json(userInput);
-        console.log(echo);
         let newNote=ask.body;        
         let ID=uuidv4();
         newNote.ID=ID;
         userInput.push(newNote);        
         effThis.writeFileSync('./db/db.json', JSON.stringify(userInput));
     })
-    xprssApp.delete('/api/notes',(ask,echo)=>{
+
+    let param=ID;
+    console.log(param);
+    xprssApp.delete('/api/notes: '+param,(ask,echo)=>{
         echo.json(userInput);
-        console.log(echo.json(userInput));
+        // console.log(echo.json(userInput));
     })
 }    
 
