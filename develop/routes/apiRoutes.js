@@ -15,26 +15,16 @@ module.exports=xprssApp=>{
     })
     xprssApp.post('/api/notes',(ask,echo)=>{
         echo.json(userInput);
+        console.log(echo);
         let newNote=ask.body;        
         let ID=uuidv4();
         newNote.ID=ID;
-        userInput.push(newNote);
-        console.log(userInput);
+        userInput.push(newNote);        
         effThis.writeFileSync('./db/db.json', JSON.stringify(userInput));
-        // JSON.stringify(userInput)-->this will be second param within the writeFile();        
-        
-        
-        //I need to stringify the json as I'm gearing up to 'writeFile()'
-        
-
-        // allNotes = effThis.readFileSync(userInput, "utf8");
-        // allNotes = JSON.parse(allNotes)
-        // let newNote=ask.body;       
-        // let newId=uuidv4();
-        // newNote.id=newId;
-        // allNotes.push(newNote);
-        // effThis.writeFileSync(shiningPath.join(__dirname, JSON.stringify(allNotes)));
-        // echo.json(JSON.parse(allNotes));
+    })
+    xprssApp.delete('/api/notes',(ask,echo)=>{
+        echo.json(userInput);
+        console.log(echo.json(userInput));
     })
 }    
 
