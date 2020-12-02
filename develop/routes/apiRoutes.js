@@ -15,15 +15,12 @@ module.exports=xprssApp=>{
     })
     xprssApp.post('/api/notes',(ask,echo)=>{
         echo.json(userInput);
-        let newNote=ask.body;
-        console.log(newNote);
-        let newId=uuidv4();
-        // console.log(newId);
-        newNote.newId=newId;
-        console.log(newId);
+        let newNote=ask.body;        
+        let ID=uuidv4();
+        newNote.ID=ID;
         userInput.push(newNote);
         console.log(userInput);
-
+        effThis.writeFileSync('./db/db.json', JSON.stringify(userInput));
         // JSON.stringify(userInput)-->this will be second param within the writeFile();        
         
         
