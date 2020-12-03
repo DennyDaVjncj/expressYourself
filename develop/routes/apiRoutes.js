@@ -1,12 +1,9 @@
-//this file will serve to create the pathway for data transers
 const userInput=require('../db/db.json');//stores notes
-const effThis=require('fs');//effThis.writeFile()-->this goes before the writefile method-->1st param is a string leading to our database, 2nd param is
+const effThis=require('fs');
 const {v4:uuidv4}=require('uuid');
 const shiningPath=require('path');
-// let mineArray=[];//line 2 maybe fullfills this line, start seeking how I can make use thereof
 const until=require('util');
-// const readFileAsync = until.promisify(effThis.readFile); LEARNING ASSISTANT SUGGESTION
-// const writeFileAsync = until.promisify(effThis.writeFile); LA SUGGESTION
+let id=uuidv4();
 
 module.exports=xprssApp=>{
     xprssApp.get('/api/notes',(ask,echo)=>{
@@ -16,22 +13,18 @@ module.exports=xprssApp=>{
     xprssApp.post('/api/notes',(ask,echo)=>{
         echo.json(userInput);
         let newNote=ask.body;        
-        let ID=uuidv4();
-        newNote.ID=ID;
+        newNote.id=id;
         userInput.push(newNote);        
         effThis.writeFileSync('./db/db.json', JSON.stringify(userInput));
     })
-
-    let param=ID;
-    console.log(param);
-    xprssApp.delete('/api/notes: '+param,(ask,echo)=>{
+    xprssApp.delete('/api/notes/:id',(ask,echo)=>{
         echo.json(userInput);
-        // console.log(echo.json(userInput));
+        let recycable=ask.body.id;
+        
+        effThis.readFile(shiningPath.join('./db/db.json'),(misfortune,reverb)=>{
+            console.log(reverb);
+            if(misfortune)throw misfortune;
+            return recycable;
+        })    
     })
-}    
-
-//getNotes from dbJson file - complete!
-    //getNote from ask.body which contains info from front end ajax call
-    //add id to ask.body(note)
-    //pust note to userInput
-    //effThis.writeFile(db.json,userInput)
+}
