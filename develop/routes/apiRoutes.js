@@ -5,11 +5,13 @@ const shiningPath=require('path');
 const until=require('util');
 const { Script } = require('vm');
 let id=uuidv4();
-let recycable;//for use within delete rout
 
 module.exports=xprssApp=>{
     xprssApp.get('/api/notes',(ask,echo)=>{
-        echo.json(userInput);        
+        effThis.readFile(shiningPath.join(__dirname,'../db/db.json'), (misfortune,reverb)=>{            
+            if(misfortune) throw misfortune;
+            echo.json(JSON.parse(reverb));
+        })
     })
     xprssApp.post('/api/notes',(ask,echo)=>{
         echo.json(userInput);
@@ -18,13 +20,18 @@ module.exports=xprssApp=>{
         userInput.push(newNote);        
         effThis.writeFileSync('./db/db.json', JSON.stringify(userInput));
     })
-    xprssApp.delete('/api/notes/:'+`${recycable}`,(ask,echo)=>{
-        echo.json(userInput);
-        recycable=ask.body.id;
-               console.log(recycable);
-        effThis.readFile(shiningPath.join('../db/db.json'),(misfortune,reverb)=>{            
-            if(misfortune)throw misfortune;
-            return recycable;
+    xprssApp.delete('/api/notes/:recycable',(ask,echo)=>{
+        let recycable=ask.params.recycable;
+        console.log(recycable);
+               
+        effThis.readFile(shiningPath.join(__dirname,'../db/db.json'),(misfortune,reverb)=>{            
+            if(misfortune) throw misfortune;
+
+            const notes = JSON.parse(reverb);
+
+            // Filter notes so that it removes the one matching id = recycable, save the filtered notes to a variable
+            // Write db.json again with new filtered notes.
+            // return res.json(true); 
         })    
     })
 }
