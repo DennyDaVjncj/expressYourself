@@ -3,12 +3,13 @@ const effThis=require('fs');
 const {v4:uuidv4}=require('uuid');
 const shiningPath=require('path');
 const until=require('util');
+const { Script } = require('vm');
 let id=uuidv4();
+let recycable;//for use within delete rout
 
 module.exports=xprssApp=>{
     xprssApp.get('/api/notes',(ask,echo)=>{
-        echo.json(userInput);
-        //if else condition that checks for error, if none, than I progrsss with 'effThis.writeFile('../db/db.json)'
+        echo.json(userInput);        
     })
     xprssApp.post('/api/notes',(ask,echo)=>{
         echo.json(userInput);
@@ -17,12 +18,11 @@ module.exports=xprssApp=>{
         userInput.push(newNote);        
         effThis.writeFileSync('./db/db.json', JSON.stringify(userInput));
     })
-    xprssApp.delete('/api/notes/:id',(ask,echo)=>{
+    xprssApp.delete('/api/notes/:'+`${recycable}`,(ask,echo)=>{
         echo.json(userInput);
-        let recycable=ask.body.id;
-        
-        effThis.readFile(shiningPath.join('./db/db.json'),(misfortune,reverb)=>{
-            console.log(reverb);
+        recycable=ask.body.id;
+               console.log(recycable);
+        effThis.readFile(shiningPath.join('../db/db.json'),(misfortune,reverb)=>{            
             if(misfortune)throw misfortune;
             return recycable;
         })    
