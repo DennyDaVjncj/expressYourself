@@ -20,15 +20,15 @@ module.exports=xprssApp=>{
         userInput.push(newNote);        
         effThis.writeFileSync('./db/db.json', JSON.stringify(userInput));
     })
-    xprssApp.delete('/api/notes/:recycable',(ask,echo)=>{
-        let recycable=ask.params.recycable;
-        console.log(recycable);
-               
+    xprssApp.delete('/api/notes/:trash',(ask,echo)=>{
+        let trash=ask.params.trash;
+        console.log(trash);               
         effThis.readFile(shiningPath.join(__dirname,'../db/db.json'),(misfortune,reverb)=>{            
             if(misfortune) throw misfortune;
-
-            const notes = JSON.parse(reverb);
-
+            const noteBook=JSON.parse(reverb);
+            const pages=noteBook.filter(tornPage=>tornPage.trash)
+            const newBinder=tornPage.trash;
+            console.log(newBinder);
             // Filter notes so that it removes the one matching id = recycable, save the filtered notes to a variable
             // Write db.json again with new filtered notes.
             // return res.json(true); 
