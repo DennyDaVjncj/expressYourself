@@ -1,6 +1,8 @@
 # Unit 11 Express Homework: 'expressYourself'
 ## Deployed link: https://aqueous-beyond-53883.herokuapp.com/
 
+## Bugs: ```the delete rout does have functionality, although there is a hiccup. the user can enter new notes that will appear on the client & delete upon request, although there's a few notes persisting at all times.```
+
 Create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.
 
 * The application frontend has already been created, it's your job to build the backend and connect the two.
