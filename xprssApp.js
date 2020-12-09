@@ -1,7 +1,7 @@
 //server configuration:
 const xprssPack=require('express');
 const xprssApp=xprssPack();//xprssPack weaponized
-const CHANNEL=process.env.PORT||7498;
+const PORT=process.env.PORT||7498;
 
 //configuring data handling/parsing:
 xprssApp.use(xprssPack.urlencoded({extended:true}));
@@ -12,6 +12,6 @@ require('./routes/apiRoutes.js')(xprssApp);
 require('./routes/htmlRoutes')(xprssApp);
 
 //bringing server online:
-xprssApp.listen(CHANNEL,()=>{
+xprssApp.listen(PORT,()=>{
     console.log('server online via channel: '+PORT);
 })
